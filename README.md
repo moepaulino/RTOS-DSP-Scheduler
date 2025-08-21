@@ -50,3 +50,4 @@ Pull Requests (PRs) are used to merge the feature branches into **dev**. Once te
 - Addition of GitHub Actions CI/CD, to ensure auto building and testing upon push/PR
 - Add test coverage reporting
 - Experiment with RTOS simulation like FreeRTOS/Zephyr
+
