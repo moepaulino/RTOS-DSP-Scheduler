@@ -23,6 +23,6 @@ void filterTask() {
     std::cout << "  [FilterTask] Avg = " << avg << std::endl;
 }
 
-void loggerTask() {
-    std::cout << "  [LoggerTask] (placeholder)" << std::endl;
+void logTask() {
+    std::cout << "  [LogTask] (placeholder)" << std::endl;
 }

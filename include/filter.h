@@ -8,6 +8,6 @@ void filterTask();
 void logTask();
 
 // Util for testing
-double movingAvg(const std::vector<double>& data, int windowSize);
+double movingAverage(const std::vector<double>& data, int windowSize);
 
 #endif
