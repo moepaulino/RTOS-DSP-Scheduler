@@ -1,6 +1,6 @@
 # RTOS DSP Scheduler
 
-A simple RTOS-style cooperative scheduler written in **C++17** on **Linux Debian (12)**, featuring:
+A simple RTOS-style cooperative scheduler written in **C++17** on **Linux (Debian 12)** targeting Debian based systems, featuring:
 
 - Task scheduling with configurable tick rate  
 - Digital signal processing tasks (moving average filter)  
@@ -35,19 +35,23 @@ make
 make test
 ```
 # Project Structure
+```
 include/ # Header files
 src/ # Source files
 tests/ # Unit tests
 Makefile # Build system
+```
 # Workflow
-This repository adheres a Git branching model:
-**main** - stable branch with workable code
-**dev** - integration branch for features that'll be merged
+This repository adheres to a Git branching model:\
+**main** - stable branch with workable code\
+**dev** - integration branch for features that'll be merged\
 **feature/*** - branches for individual tasks
-Pull Requests (PRs) are used to merge the feature branches into **dev**. Once tested and stable, **dev** is merged insto **main**.
+
+Pull Requests (PRs) are used to merge the **feature** branches into **dev**. Once tested and stable, **dev** is merged into **main**.
 # Prospective Additions
 - Extend the logger task to write to logfile(s) rather than a console
-- Addition of GitHub Actions CI/CD, to ensure auto building and testing upon push/PR
+- Addition of GitHub Actions CI/CD, to ensure auto-building and testing upon push/PR
 - Add test coverage reporting
 - Experiment with RTOS simulation like FreeRTOS/Zephyr
+
 
