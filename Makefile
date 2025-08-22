@@ -19,3 +19,4 @@ test: $(TESTS)
 
 clean:
 	rm -f $(TARGET) $(TEST_TARGET)
+	rm -rf logs
