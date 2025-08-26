@@ -1,0 +1,10 @@
+# Ignore build artifacts and logs
+rtos_dsp_scheduler
+test_runner
+*.o
+logs/
+*.log
+
+# Operating system/Editor files
+*.swp
+*.DS_Store
