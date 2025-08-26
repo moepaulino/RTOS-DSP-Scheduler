@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -Iinclude
 LDFLAGS = -lfftw3 -lm -lgtest_main -lgtest -lpthread
 
 SRC = src/main.cpp src/scheduler.cpp src/filter.cpp src/fft.cpp
-TESTS = tests/test_filter.cpp tests/test_fft.cpp src/filter.cpp src/fft.cpp
+TESTS = tests/test_filter.cpp tests/test_fft.cpp src/filter.cpp src/fft.cpp tests/test_logger.cpp
 
 TARGET = rtos_dsp_scheduler
 TEST_TARGET = test_runner
