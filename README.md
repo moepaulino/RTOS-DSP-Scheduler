@@ -13,28 +13,28 @@ This project demonstrates embedded-style scheduling and DSP in a Linux environme
 
 # Building & Running
 
-# Prerequisites
+## Prerequisites
 Make sure the following packages are installed on your system (Debian/Ubuntu):
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake libfftw3-dev libgtest-dev
 ```
-# Building the GoogleTest libraries
+## Building the GoogleTest libraries
 ```bash
 cd /usr/src/gtest
 sudo cmake .
 sudo make
 sudo cp lib/*.a /usr/lib
 ```
-# Building the main program
+## Building the main program
 ```bash
 make
 ```
-# Running tests
+## Running tests
 ```
 make test
 ```
-# Project Structure
+## Project Structure
 ```
 include/ # Header files
 src/ # Source files
@@ -54,4 +54,14 @@ Pull Requests (PRs) are used to merge the **feature** branches into **dev**. Onc
 - Add test coverage reporting
 - Experiment with RTOS simulation like FreeRTOS/Zephyr
 
+## Running with Docker
 
+This project includes a Dockerfile for portability.  
+You can build and run the project in a clean Debian 12 container without installing dependencies manually.
+
+### Prerequisites
+- Install [Docker Engine](https://docs.docker.com/engine/install/) (tested on Debian 12)
+
+### Build the image
+```bash
+docker build -t rtos-dsp-scheduler .
