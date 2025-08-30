@@ -4,26 +4,25 @@
 #include <cmath>
 #include <fftw3.h>
 
-void fftTask() {
-    const int N = 16;
-    static std::vector<double> signal(N, 0.0);
-    static int step = 0;
-
-    // Sine wave
-    for (int i = 0; i < N; i++) {
-        signal[i] = sin(2.0 * M_PI * i / N * step);
-    }
-    step++;
+std::vector<double> FFT::compute(const std::vector<double>& data) {
+    const int N = data.size();
+    std::vector<double> magnitudes;
 
     // Allocate the FFT output
     fftw_complex* out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * N);
-    fftw_plan plan = fftw_plan_dft_r2c_1d(N, signal.data(), out, FFTW_ESTIMATE);
+    fftw_plan plan = fftw_plan_dft_r2c_1d(N, const_cast<double*>(data.data()), out, FFTW_ESTIMATE);
 
     fftw_execute(plan);
 
-    double mag = sqrt(out[1][0]*out[1][0] + out[1][1]*out[1][1]);
-    std::cout << "  [FFTTask] First bin magnitude = " << mag << std::endl;
+    // Compute magnitudes
+    int bins = N / 2 + 1;
+    magnitudes.resize(bins);
+    for (int i = 0; i < bins; i++) {
+        magnitudes[i] = sqrt(out[i][0] * out[i][0] + out[i][1] * out[i][1]);
+    }
 
     fftw_destroy_plan(plan);
     fftw_free(out);
+
+    return magnitudes;
 }

@@ -6,6 +6,7 @@
 #include <chrono>
 #include <iomanip>
 #include <sstream>
+#include <numeric>
 
 std::string getTimestamp() {
     using namespace std::chrono;
@@ -22,7 +23,7 @@ std::string getTimestamp() {
 
 namespace fs = std::filesystem;
 
-double movingAverage(const std::vector<double>& data, int windowSize) {
+double Filter::movingAverage(const std::vector<double>& data, int windowSize) {
     
     if (data.size() < static_cast<size_t>(windowSize)) { return 0.0; };
     double sum = 0.0;
@@ -35,11 +36,12 @@ double movingAverage(const std::vector<double>& data, int windowSize) {
 }
 
 static std::vector<double> signal;
+static Filter filter;
 
 void filterTask() {
     // Square wave
     signal.push_back((signal.size() % 20 < 10) ? 1.0 : 0.0); 
-    double avg = movingAverage(signal, 5);
+    double avg = filter.movingAverage(signal, 5);
     std::cout << "  [FilterTask] Avg = " << avg << std::endl;
 }
 

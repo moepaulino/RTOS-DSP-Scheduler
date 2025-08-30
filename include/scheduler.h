@@ -1,6 +1,22 @@
-#ifndef SCHEDULER_H
-#define SCHEDULER_H
+#pragma once
+#include <functional>
+#include <vector>
+#include <chrono>
 
-void runScheduler(int ticks, int tick_ms);
+struct Task {
+    std::function<void()> func;
+    int priority; // Higher number = runs first
+    int period; // Period in ticks
+    int nextRun;  // When this task should run next
+};
 
-#endif
+class Scheduler {
+public:
+    Scheduler();
+    void addTask(std::function<void()> func, int priority, int period);
+    void run(int maxTicks);
+
+private:
+    std::vector<Task> tasks;
+    int tick;
+};
