@@ -50,9 +50,12 @@ This repository adheres to a Git branching model:\
 Pull Requests (PRs) are used to merge the **feature** branches into **dev**. Once tested and stable, **dev** is merged into **main**.
 # Prospective Additions
 - Extend the logger task to write to logfile(s) rather than a console
-- Addition of GitHub Actions CI/CD, to ensure auto-building and testing upon push/PR
+- Add GitHub Actions CI/CD, to ensure auto-building and testing upon push/PR
 - Add test coverage reporting
 - Experiment with RTOS simulation like FreeRTOS/Zephyr
+- Add extensions to signal processing (windowing, simulate sensor input, FIR/IIR filters)
+- Integrate with Cloud/AWS (push system logs to S3 and process events with AWS Lambda)
+- Simplify Docker build/run workflow
 
 ## Running with Docker
 
